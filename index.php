@@ -22,22 +22,66 @@ function instanciarAlunos()
 	return $alunos;
 }
 
-$alunos = instanciarAlunos();
-
-$turma = new Turma("Turma - 1");
-
-foreach ($alunos as $aluno) 
+function adicionarAlunos($turma, $alunos)
+{
+	foreach ($alunos as $aluno) 
 {
 	if($turma->adicionarAluno($aluno))
-{
-	echo "Adicionou ".$aluno->getNome()."<br>";
-}
-else
-{
-	echo "<br>Erro! Turma Cheia!";
-}
+	{
+		?>
+		<div class="alert alert-success" role="alert">
+  Aluno(a): <b><?php  echo $aluno->getNome()?></b> inserido com Sucesso!
+</div>
+<?php
+	}
+	else
+	{
+		?>
+
+<div class="alert alert-danger" role="alert">
+<?php echo "<br>Erro! Turma Cheia! ";
+?><b><?php echo $aluno->getNome();?></b>
+</div>
+		<?php
+	}
 }
 
+return $turma;
+}
+
+
+function exibirAluno($aluno)
+{
+?>
+
+<h4><?php echo $aluno->getNome()?></h4>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Nota 1</th>
+			<th>Nota 2</th>
+			<th>Nota 3</th>
+			<th>Nota 4</th>
+			<th>Media</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+			<th><?php echo $aluno->getNota1()?></th>
+			<th><?php echo $aluno->getNota2()?></th>
+			<th><?php echo $aluno->getNota3()?></th>
+			<th><?php echo $aluno->getNota4()?></th>
+			<th><?php echo $aluno->getMedia()?></th>
+		</tr>
+	</tbody>
+
+</table>
+<?php
+}
+
+$alunos = instanciarAlunos();
+
+$turma = new Turma("T-150");
 
 //Testando Turma
 /*
@@ -90,6 +134,42 @@ else
 echo "Media: ".$tuma1->mediaTurma();
 
 */
-
-
 ?>
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+ 	<title>Controle turmas</title>
+</head>
+
+<body>
+<div class="container">
+	<div class="row">
+		<h2>Controle de notas de turmas</h2>
+		<div class="col">
+		<?php adicionarAlunos($turma, $alunos);?>
+		<hr>
+		<h3>Notas dos alunos da turma <?php echo $turma->getNome()?><h3>
+		<h4>Média da Turma <span class="badge bg-primary"><?php echo $turma->mediaTurma();?></span></h4>
+		</hr>
+		<?php 
+		foreach($alunos as $aluno)
+		{
+			exibirAluno($aluno);
+		}
+		?>
+
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>
