@@ -1,81 +1,91 @@
 <?php
 
-class Aluno
-{
+
+  class Aluno {
     protected $nome;
     protected $ra;
     protected $nota1;
     protected $nota2;
     protected $nota3;
     protected $nota4;
-    
-    public function setNome($nome)
-    {
-        $this->nome = $nome;
-    }
 
     
-    public function getNome()
+    /*public function adicionarDados($nome, $ra, $nota1, $nota2, $nota3, $nota4) 
     {
-        return $this->nome;
+      $this->nome = $nome;
+      $this->ra = $ra;
+      $this->nota1 = $nota1;
+      $this->nota2 = $nota2;
+      $this->nota3 = $nota3;
+      $this->nota4 = $nota4;
+    }*/
+
+    public function setNome($nome) 
+    {
+      $this->nome = $nome;
     }
 
-    public function setRa($ra)
+    public function getNome() 
     {
-        $this->ra = $ra;
+      return $this->nome;
     }
 
-    public function getRa()
+    public function setRa($ra) 
     {
-        return $this->ra;
+      $this->ra = $ra;
     }
 
-
-    public function setNota1($nota)
+    public function getRa() 
     {
-        $this->nota1 = $nota;
+      return $this->ra;
     }
 
-    public function getNota1()
+    public function setNota1($nota1) 
     {
-        return $this->nota1;
+      $this->nota1 = $nota1;
     }
 
-    public function setNota2($nota)
+    public function getNota1() 
     {
-        $this->nota2 = $nota;
+      return $this->nota1;
     }
 
-    public function getNota2()
+    public function setNota2($nota2) 
     {
-        return $this->nota2;
+      $this->nota2 = $nota2;
     }
 
-    public function setNota3($nota)
+    public function getNota2() 
     {
-        $this->nota3 = $nota;
+      return $this->nota2;
     }
+
+    public function setNota3($nota3) 
+    {
+      $this->nota3 = $nota3;
+    }
+
 
     public function getNota3()
     {
-        return $this->nota3;
+      return $this->nota3;
     }
 
-    public function setNota4($nota)
+
+    public function setNota4($nota4) 
     {
-        $this->nota4 = $nota;
+      $this->nota4 = $nota4;
+    }
+    public function getNota4() 
+    {
+      return $this->nota4;
     }
 
-    public function getNota4()
-    {
-        return $this->nota4;
+
+    public function getMedia() 
+    { 
+      return ($this->nota1 + $this->nota2 + $this->nota3 + $this->nota4) / 4;
     }
 
-    public function getMedia()
-    {
-        return ($this->$nota1 + $this->$nota3 + $this->$nota3 + $this->$nota4)/4;
-    }    
-
-}
-
+  }
 ?>
