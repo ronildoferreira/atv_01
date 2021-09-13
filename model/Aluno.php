@@ -10,7 +10,7 @@
     protected $nota4;
 
     
-    /*public function adicionarDados($nome, $ra, $nota1, $nota2, $nota3, $nota4) 
+    public function __construct($nome, $ra, $nota1, $nota2, $nota3, $nota4) 
     {
       $this->nome = $nome;
       $this->ra = $ra;
@@ -18,7 +18,7 @@
       $this->nota2 = $nota2;
       $this->nota3 = $nota3;
       $this->nota4 = $nota4;
-    }*/
+    }
 
     public function setNome($nome) 
     {
