@@ -154,7 +154,7 @@ echo "Media: ".$tuma1->mediaTurma();
 	<div class="row">
 	<h3>Curso: Sistemas para Internet - Unicesumar</h3>	
 	<h4>Disciplina: Back End II</h4>
-	<h5>Aluno: Ronildo Ferreira da Silva</h5> 
+	<h5>Aluno: Ronildo Ferreira da Silva - RA: 21161874-5</h5> 
 	<span class="badge bg-primary">
 		<h2>Controle de notas de turmas</h2>
 		<div class="col">
